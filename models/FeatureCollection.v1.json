@@ -1,0 +1,10 @@
+{
+  "title": "FeatureCollection",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  },
+  "description": "GeoJSON FeatureCollection"
+}

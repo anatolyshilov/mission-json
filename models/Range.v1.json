@@ -1,0 +1,19 @@
+{
+  "title": "Range",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      }
+    },
+    {
+      "type": "number"
+    }
+  ]
+}

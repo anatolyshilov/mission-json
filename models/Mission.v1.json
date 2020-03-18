@@ -1,0 +1,157 @@
+{
+  "title": "Mission",
+  "type": "object",
+  "description": "",
+  "x-examples": {},
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "schema": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "team": {
+      "type": "string"
+    },
+    "itemTypes": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "points": {
+                  "type": "number"
+                }
+              }
+            },
+            "dimensions": {
+              "type": "object",
+              "properties": {
+                "length": {
+                  "$ref": "./Range.v1.json"
+                },
+                "width": {
+                  "$ref": "./Range.v1.json"
+                },
+                "height": {
+                  "$ref": "./Range.v1.json"
+                }
+              }
+            },
+            "dynamic": {
+              "type": [
+                "string",
+                "object"
+              ],
+              "properties": {
+                "velocity": {
+                  "$ref": "./Range.v1.json"
+                },
+                "acceleration": {
+                  "$ref": "./Range.v1.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "arrangements": {
+            "type": [
+              "string",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "venue": {
+                  "type": "object",
+                  "properties": {
+                    "slug": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "position": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "zones": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./Zone.v1.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
