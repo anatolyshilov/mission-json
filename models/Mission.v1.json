@@ -13,12 +13,6 @@
     "schema": {
       "type": "string"
     },
-    "slug": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
     "description": {
       "type": "string"
     },
@@ -33,9 +27,6 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
-        },
-        "slug": {
           "type": "string"
         },
         "name": {
@@ -93,6 +84,9 @@
               }
             }
           }
+        },
+        "slug": {
+          "type": "string"
         }
       }
     },
@@ -111,10 +105,7 @@
             "type": "string"
           },
           "arrangements": {
-            "type": [
-              "string",
-              "array"
-            ],
+            "type": "array",
             "items": {
               "type": "object",
               "properties": {
@@ -149,18 +140,18 @@
                       }
                     }
                   }
-                },
-                "zones": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "./Zone.v1.json"
-                  }
                 }
               }
             }
           }
         }
       }
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

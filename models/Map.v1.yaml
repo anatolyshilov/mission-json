@@ -1,0 +1,9 @@
+title: Map
+type: object
+properties:
+  arrangement:
+    type: string
+  zones:
+    type: array
+    items:
+      $ref: ./Zone.v1.json
