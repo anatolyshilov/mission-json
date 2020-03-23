@@ -1,6 +1,6 @@
 title: Map
 type: object
-description: 'This schema describes the map of an arrangement. Each map comes as a separate file named <arrangement-slug>.json'
+description: 'This schema describes the map of an arrangement. Each map comes as a separate file named `<arrangement-slug>.json`'
 properties:
   arrangement:
     type: string

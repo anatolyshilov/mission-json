@@ -1,70 +1,98 @@
 {
   "title": "Mission",
   "type": "object",
-  "description": "This model describes the main file of a mission description named <mission",
-  "x-examples": {
-    "example-1": {}
-  },
+  "description": "This model describes the main file of a mission description named `<mission-slug>-<team>.json`. Each team is given its own version of the mission description",
+  "x-examples": {},
   "properties": {
-    "id": {
-      "type": "string"
+    "slug": {
+      "type": "string",
+      "description": "User-friendly and URL-valid name of the mission. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
     },
     "version": {
-      "type": "string"
+      "type": "string",
+      "description": "Mission description version"
     },
     "schema": {
-      "type": "string"
+      "type": "string",
+      "description": "JSON schema URL"
     },
     "name": {
-      "type": "string"
-    },
-    "slug": {
-      "type": "string"
+      "type": "string",
+      "description": "Mission name"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "description": "Mission description"
     },
     "created": {
       "type": "string",
-      "format": "date-time"
+      "format": "date-time",
+      "description": "Creation date/time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format `YYYY-MM-DD'T'hh:mm:ss.ffffffZ`."
     },
     "team": {
-      "type": "string"
+      "type": "string",
+      "description": "Team name"
     },
     "itemTypes": {
       "type": "object",
+      "description": "Types of virtual object used in this mission",
+      "required": [
+        "id",
+        "name",
+        "properties"
+      ],
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Item type identifier"
+        },
+        "slug": {
+          "type": "string",
+          "description": "User-friendly and URL-valid name of the type. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Item type name"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "Item type description"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "description": "URL of a web page containing detailed information on this type"
         },
         "kind": {
-          "type": "string"
+          "type": "string",
+          "description": "Object kind (physical body, phenomenon such as rain or fog etc.). In the current version of Roborace Metaverse this field will always contain the value `physical_body`"
         },
         "properties": {
           "type": "object",
+          "description": "Object properties",
           "properties": {
             "role": {
               "type": "object",
+              "required": [
+                "value"
+              ],
+              "description": "Object's role in the game",
               "properties": {
                 "value": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "One of obstacle, collectable, etc (the list of possible values may vary from mission to mission)"
                 },
                 "points": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Score points (positive value means reward; negative value means penalty). If not specified, then a contact with such an object does not affect team/car score"
                 }
               }
             },
             "dimensions": {
               "type": "object",
+              "required": [
+                "length"
+              ],
+              "description": "Physical dimensions (if applicable)",
               "properties": {
                 "length": {
                   "$ref": "./Range.v1.json"
@@ -78,10 +106,8 @@
               }
             },
             "dynamic": {
-              "type": [
-                "string",
-                "object"
-              ],
+              "type": "object",
+              "description": "Dynamic characteristics (if applicable)",
               "properties": {
                 "velocity": {
                   "$ref": "./Range.v1.json"
@@ -92,9 +118,6 @@
               }
             }
           }
-        },
-        "slug": {
-          "type": "string"
         }
       }
     },
@@ -155,5 +178,14 @@
         }
       }
     }
-  }
+  },
+  "required": [
+    "slug",
+    "version",
+    "schema",
+    "name",
+    "created",
+    "team",
+    "itemTypes"
+  ]
 }

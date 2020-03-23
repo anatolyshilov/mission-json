@@ -10,7 +10,7 @@
     },
     "slug": {
       "type": "string",
-      "description": "User-friendly and URL-valid name of the zone. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)."
+      "description": "User-friendly and URL-valid name of the zone. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
     },
     "type": {
       "type": "string",
