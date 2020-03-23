@@ -1,49 +1,79 @@
 {
   "title": "Item",
   "type": "object",
+  "description": "An object, either virtual or real, on the scene. Only stationery (non-movable and always present) objects will be specified in mission description files",
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "description": "Unique item identifier"
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "description": "Object type"
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "description": "User-friendly and URL-valid name of the object. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug).",
+      "pattern": "^[A-Za-z0-9 -_]+"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "Item name"
     },
     "description": {
-      "type": "string"
-    },
-    "code": {
-      "type": "string"
+      "type": "string",
+      "description": "Item description"
     },
     "spatial": {
       "type": "object",
+      "required": [
+        "position",
+        "orientation"
+      ],
+      "description": "Object's position and orientation in space",
       "properties": {
         "position": {
           "type": "array",
+          "description": "Object's position (latitude, longitude, elevation). Positive latitude corresponds to Northern Hemisphere, positive longitude corresponds to Eastern Hemisphere, elevation is measured in meters above sea level",
           "items": {
             "type": "number"
           }
         },
         "orientation": {
           "type": "object",
+          "required": [
+            "yaw",
+            "pitch",
+            "roll"
+          ],
+          "description": "Object's orientation (Tait–Bryan angles)",
           "properties": {
             "yaw": {
-              "type": "number"
+              "type": "number",
+              "description": "Yaw angle in degrees, relative to the north. Positive direction is clockwise looking top down",
+              "minimum": -180,
+              "maximum": 180
             },
             "pitch": {
-              "type": "number"
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180,
+              "description": "Pitch angle in degrees, relative to the horizontal position. Positive direction is 'nose up'"
             },
             "roll": {
-              "type": "number"
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180,
+              "description": "Roll angle in degrees, relative to the horizontal position. Positive direction is clockwise looking at the 'nose' of the object"
             }
           }
         }
       }
     }
-  }
+  },
+  "required": [
+    "id",
+    "type",
+    "spatial"
+  ]
 }

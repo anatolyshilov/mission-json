@@ -2,33 +2,43 @@
   "title": "Zone",
   "type": "object",
   "x-examples": {},
+  "description": "Zone represents a particular part of the map such as the track itself, the pitlane or the finish line. Zones are hierarchically organised and described in terms of GeoJSON feature collections",
   "properties": {
-    "description": {
-      "type": "string"
-    },
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "Zone name"
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "description": "User-friendly and URL-valid name of the zone. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)."
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "description": "Zone type "
     },
     "zones": {
       "type": "array",
+      "description": "List of the child zones of this zone",
       "items": {
         "$ref": "./Zone.v1.json"
       }
     },
     "items": {
       "type": "array",
+      "description": "Stationery items placed in the zone",
       "items": {
         "$ref": "./Item.v1.json"
       }
     },
     "positioning": {
       "$ref": "./FeatureCollection.v1.json"
+    },
+    "description": {
+      "type": "string",
+      "description": "Zone description"
     }
-  }
+  },
+  "required": [
+    "type"
+  ]
 }
