@@ -72,9 +72,6 @@
           "properties": {
             "role": {
               "type": "object",
-              "required": [
-                "value"
-              ],
               "description": "Object's role in the game",
               "properties": {
                 "value": {
@@ -85,13 +82,13 @@
                   "type": "number",
                   "description": "Score points (positive value means reward; negative value means penalty). If not specified, then a contact with such an object does not affect team/car score"
                 }
-              }
+              },
+              "required": [
+                "value"
+              ]
             },
             "dimensions": {
               "type": "object",
-              "required": [
-                "length"
-              ],
               "description": "Physical dimensions (if applicable)",
               "properties": {
                 "length": {
@@ -103,7 +100,10 @@
                 "height": {
                   "$ref": "./Range.v1.json"
                 }
-              }
+              },
+              "required": [
+                "length"
+              ]
             },
             "dynamic": {
               "type": "object",
@@ -123,59 +123,80 @@
     },
     "events": {
       "type": "array",
+      "description": "List of Roborace events where this mission is intended to be fulfilled",
       "items": {
         "type": "object",
         "properties": {
           "slug": {
-            "type": "string"
+            "type": "string",
+            "description": "User-friendly and URL-valid name of the event. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Event name"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Event description"
           },
           "arrangements": {
             "type": "array",
+            "description": "List of arrangements for the event. Each arrangement has its own map which is provided in a separate file",
             "items": {
               "type": "object",
               "properties": {
                 "slug": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "User-friendly and URL-valid name of the arrangement. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
                 },
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Arrangement name"
                 },
                 "description": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Arrangement description"
                 },
                 "venue": {
                   "type": "object",
+                  "description": "Venue of the arrangement",
                   "properties": {
                     "slug": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "User-friendly and URL-valid name of the venue. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
                     },
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Venue name"
                     },
                     "description": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Venue description"
                     },
                     "address": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Venue address"
                     },
                     "position": {
                       "type": "array",
+                      "description": "Venue geoposition (latitude, longitude). Positive latitude corresponds to Northern Hemisphere, positive longitude corresponds to Eastern Hemisphere",
                       "items": {
                         "type": "number"
                       }
                     }
-                  }
+                  },
+                  "required": [
+                    "name",
+                    "address"
+                  ]
                 }
               }
             }
           }
-        }
+        },
+        "required": [
+          "name"
+        ]
       }
     }
   },
@@ -186,6 +207,7 @@
     "name",
     "created",
     "team",
-    "itemTypes"
+    "itemTypes",
+    "events"
   ]
 }
