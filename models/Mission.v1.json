@@ -18,6 +18,9 @@
     "name": {
       "type": "string"
     },
+    "slug": {
+      "type": "string"
+    },
     "description": {
       "type": "string"
     },
@@ -151,12 +154,6 @@
           }
         }
       }
-    },
-    "name": {
-      "type": "string"
-    },
-    "slug": {
-      "type": "string"
     }
   }
 }
