@@ -1,5 +1,5 @@
 {
-  "title": "Point geometry object",
+  "title": "Point",
   "allOf": [
     {
       "$ref": "./GeometryObject.v1.json"
@@ -23,5 +23,6 @@
     }
   ],
   "link": "https://tools.ietf.org/html/rfc7946#section-3.1.2",
-  "x-examples": {}
+  "x-examples": {},
+  "description": "Point geometry object"
 }

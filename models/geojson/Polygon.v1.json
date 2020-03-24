@@ -1,0 +1,33 @@
+{
+    "title": "Polygon geometry object",
+    "link": "https://tools.ietf.org/html/rfc7946#section-3.1.6",
+    "allOf": [
+        {
+            "$ref": "./GeometryObject.v1.json"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Polygon"
+                    ]
+                },
+                "coordinates": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "minItems": 4,
+                        "items": {
+                            "$ref": "./Coordinates.v1.json"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "coordinates"
+            ]
+        }
+    ],
+    "type": "object"
+}
