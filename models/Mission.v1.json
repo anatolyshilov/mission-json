@@ -1,7 +1,7 @@
 {
   "title": "Mission",
   "type": "object",
-  "description": "This model describes the main file of a mission description named `<mission-slug>-<team>.json`. Each team is given its own version of the mission description",
+  "description": "This model describes the main file of a mission description named `{mission-slug}-{team}.json`. Each team is given its own version of the mission description",
   "x-examples": {},
   "properties": {
     "slug": {
@@ -141,7 +141,7 @@
           },
           "arrangements": {
             "type": "array",
-            "description": "List of arrangements for the event. Each arrangement has its own map which is provided in a separate file",
+            "description": "List of arrangements for the event. Each arrangement has its own map which is provided in a separate file (see [Map](./Map.v1.json))",
             "items": {
               "type": "object",
               "properties": {

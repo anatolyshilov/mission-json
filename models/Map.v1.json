@@ -1,0 +1,23 @@
+{
+  "title": "Map",
+  "type": "object",
+  "description": "This schema describes the map of an arrangement. Each map comes as a separate file named `{arrangement slug}.json`",
+  "properties": {
+    "arrangement": {
+      "type": "string",
+      "description": "Arrangement slug",
+      "pattern": "^[A-Za-z0-9 -_]+"
+    },
+    "zones": {
+      "type": "array",
+      "description": "List of the arrangement's root zones"
+    },
+    "items": {
+      "$ref": "./Zone.v1.json"
+    }
+  },
+  "required": [
+    "arrangement",
+    "zones"
+  ]
+}
