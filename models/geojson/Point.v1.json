@@ -1,0 +1,27 @@
+{
+  "title": "Point geometry object",
+  "allOf": [
+    {
+      "$ref": "./GeometryObject.v1.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Point"
+          ]
+        },
+        "coordinates": {
+          "$ref": "./Coordinates.v1.json"
+        }
+      },
+      "required": [
+        "coordinates"
+      ]
+    }
+  ],
+  "link": "https://tools.ietf.org/html/rfc7946#section-3.1.2",
+  "x-examples": {}
+}

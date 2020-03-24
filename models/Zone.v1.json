@@ -31,7 +31,7 @@
       }
     },
     "positioning": {
-      "$ref": "./FeatureCollection.v1.json"
+      "$ref": "./geojson/FeatureCollection.v1.json"
     },
     "description": {
       "type": "string",

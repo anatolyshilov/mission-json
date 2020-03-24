@@ -1,0 +1,25 @@
+{
+  "title": "GeometryObject",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "Point",
+        "LineString",
+        "MultiPoint",
+        "Polygon",
+        "MultiLineString",
+        "MultiPolygon",
+        "GeometryCollection",
+        "FeatureCollection",
+        "Feature"
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "link": "https://tools.ietf.org/html/rfc7946#section-3",
+  "description": "The base GeoJSON object"
+}
