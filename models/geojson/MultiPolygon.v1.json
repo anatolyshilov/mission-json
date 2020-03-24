@@ -1,6 +1,5 @@
 {
-  "title": "Polygon",
-  "link": "https://tools.ietf.org/html/rfc7946#section-3.1.6",
+  "title": "MultiPolygon",
   "allOf": [
     {
       "$ref": "./GeometryObject.v1.json"
@@ -11,16 +10,19 @@
         "type": {
           "type": "string",
           "enum": [
-            "Polygon"
+            "MultiPolygon"
           ]
         },
         "coordinates": {
           "type": "array",
           "items": {
             "type": "array",
-            "minItems": 4,
             "items": {
-              "$ref": "./Coordinates.v1.json"
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "$ref": "./Coordinates.v1.json"
+              }
             }
           }
         }
@@ -30,5 +32,6 @@
       ]
     }
   ],
-  "description": "Polygon geometry object"
+  "link": "https://tools.ietf.org/html/rfc7946#section-3.1.7",
+  "description": "MultiPolygon geometry object"
 }
