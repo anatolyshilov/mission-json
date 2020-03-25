@@ -26,11 +26,11 @@
     },
     "spatial": {
       "type": "object",
+      "description": "Object's position and orientation in space",
       "required": [
         "position",
         "orientation"
       ],
-      "description": "Object's position and orientation in space",
       "properties": {
         "position": {
           "type": "array",
@@ -41,12 +41,12 @@
         },
         "orientation": {
           "type": "object",
+          "description": "Object's orientation (Tait–Bryan angles in North-East-Down coordinate system)",
           "required": [
             "yaw",
             "pitch",
             "roll"
           ],
-          "description": "Object's orientation (Tait–Bryan angles)",
           "properties": {
             "yaw": {
               "type": "number",
@@ -64,7 +64,7 @@
               "type": "number",
               "minimum": -180,
               "maximum": 180,
-              "description": "Roll angle in degrees, relative to the horizontal position. Positive direction is clockwise looking at the 'nose' of the object"
+              "description": "Roll angle in degrees, relative to the horizontal position. Positive direction is counter-clockwise looking at the 'nose' of the object"
             }
           }
         }
