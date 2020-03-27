@@ -23,9 +23,9 @@
         "$ref": "./Zone.v1.json"
       }
     },
-    "items": {
+    "gizmos": {
       "type": "array",
-      "description": "Stationery items placed in the zone",
+      "description": "Stationery gizmos (i.e. virtual or real objects) placed in the zone",
       "items": {
         "$ref": "./Item.v1.json"
       }
