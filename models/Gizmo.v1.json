@@ -1,15 +1,15 @@
 {
-  "title": "Item",
+  "title": "Gizmo",
   "type": "object",
   "description": "An object, either virtual or real, on the scene. Only stationery (non-movable and always present) objects will be specified in mission description files",
   "properties": {
     "id": {
       "type": "string",
-      "description": "Unique item identifier"
+      "description": "Unique gizmo identifier"
     },
     "type": {
       "type": "string",
-      "description": "Object type"
+      "description": "Gizmo type"
     },
     "slug": {
       "type": "string",
@@ -18,11 +18,11 @@
     },
     "name": {
       "type": "string",
-      "description": "Item name"
+      "description": "Gizmo name"
     },
     "description": {
       "type": "string",
-      "description": "Item description"
+      "description": "Gizmo description"
     },
     "spatial": {
       "type": "object",

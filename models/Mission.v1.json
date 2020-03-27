@@ -33,9 +33,9 @@
       "type": "string",
       "description": "Team name"
     },
-    "itemTypes": {
+    "gizmoTypes": {
       "type": "object",
-      "description": "Types of virtual object used in this mission",
+      "description": "Types of gizmos (i.e. virtual and real objects) used in this mission",
       "required": [
         "id",
         "name",
@@ -44,7 +44,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Item type identifier"
+          "description": "Gizmo type identifier"
         },
         "slug": {
           "type": "string",
@@ -52,11 +52,11 @@
         },
         "name": {
           "type": "string",
-          "description": "Item type name"
+          "description": "Gizmo type name"
         },
         "description": {
           "type": "string",
-          "description": "Item type description"
+          "description": "Gizmo type description"
         },
         "url": {
           "type": "string",
@@ -207,7 +207,7 @@
     "name",
     "created",
     "team",
-    "itemTypes",
+    "gizmoTypes",
     "events"
   ]
 }
