@@ -10,10 +10,10 @@
     },
     "zones": {
       "type": "array",
-      "description": "List of the arrangement's root zones"
-    },
-    "items": {
-      "$ref": "./Zone.v1.json"
+      "description": "List of the arrangement's root zones",
+      "items": {
+        "$ref": "./Zone.v1.json"
+      }
     }
   },
   "required": [
