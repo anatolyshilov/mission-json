@@ -27,7 +27,7 @@
       "type": "array",
       "description": "Stationery gizmos (i.e. virtual or real objects) placed in the zone",
       "items": {
-        "$ref": "./Item.v1.json"
+        "$ref": "./Gizmo.v1.json"
       }
     },
     "positioning": {
