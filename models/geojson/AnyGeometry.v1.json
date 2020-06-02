@@ -1,0 +1,28 @@
+{
+  "title": "AnyGeometry",
+  "oneOf": [
+    {
+      "$ref": "./Point.v1.json"
+    },
+    {
+      "$ref": "./MultiPoint.v1.json"
+    },
+    {
+      "$ref": "./LineString.v1.json"
+    },
+    {
+      "$ref": "./MultiLineString.v1.json"
+    },
+    {
+      "$ref": "./Polygon.v1.json"
+    },
+    {
+      "$ref": "./MultiPolygon.v1.json"
+    },
+    {
+      "$ref": "./GeometryCollection.v1.json"
+    }
+  ],
+  "link": "https://tools.ietf.org/html/rfc7946#section-3",
+  "description": "A helper schema for merging all possible geometries."
+}

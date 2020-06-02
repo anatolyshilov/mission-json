@@ -1,62 +1,95 @@
 {
   "title": "Mission",
   "type": "object",
-  "description": "",
+  "description": "This model describes the main file of a mission description named `mission-{mission-slug}-{team}.json`. Each team is given its own version of the mission description",
   "x-examples": {},
   "properties": {
-    "id": {
-      "type": "string"
+    "slug": {
+      "type": "string",
+      "description": "User-friendly and URL-valid name of the mission. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
     },
     "version": {
-      "type": "string"
+      "type": "string",
+      "description": "Mission description version"
     },
     "schema": {
-      "type": "string"
+      "type": "string",
+      "description": "JSON schema URL"
+    },
+    "name": {
+      "type": "string",
+      "description": "Mission name"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "description": "Mission description"
     },
     "created": {
       "type": "string",
-      "format": "date-time"
+      "format": "date-time",
+      "description": "Creation date/time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format `YYYY-MM-DD'T'hh:mm:ss.ffffffZ`."
     },
     "team": {
-      "type": "string"
+      "type": "string",
+      "description": "Team name"
     },
-    "itemTypes": {
+    "gizmoTypes": {
       "type": "object",
+      "description": "Types of gizmos (i.e. virtual and real objects) used in this mission",
+      "required": [
+        "id",
+        "name",
+        "properties"
+      ],
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Gizmo type identifier"
+        },
+        "slug": {
+          "type": "string",
+          "description": "User-friendly and URL-valid name of the type. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Gizmo type name"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "Gizmo type description"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "description": "URL of a web page containing detailed information on this type"
         },
         "kind": {
-          "type": "string"
+          "type": "string",
+          "description": "Object kind (physical body, phenomenon such as rain or fog etc.). In the current version of Roborace Metaverse this field will always contain the value `physical_body`"
         },
         "properties": {
           "type": "object",
+          "description": "Object properties",
           "properties": {
             "role": {
               "type": "object",
+              "description": "Object's role in the game",
               "properties": {
                 "value": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "One of obstacle, collectable, etc (the list of possible values may vary from mission to mission)"
                 },
                 "points": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Score points (positive value means reward; negative value means penalty). If not specified, then a contact with such an object does not affect team/car score"
                 }
-              }
+              },
+              "required": [
+                "value"
+              ]
             },
             "dimensions": {
               "type": "object",
+              "description": "Physical dimensions (if applicable)",
               "properties": {
                 "length": {
                   "$ref": "./Range.v1.json"
@@ -67,13 +100,14 @@
                 "height": {
                   "$ref": "./Range.v1.json"
                 }
-              }
+              },
+              "required": [
+                "length"
+              ]
             },
             "dynamic": {
-              "type": [
-                "string",
-                "object"
-              ],
+              "type": "object",
+              "description": "Dynamic characteristics (if applicable)",
               "properties": {
                 "velocity": {
                   "$ref": "./Range.v1.json"
@@ -89,69 +123,91 @@
     },
     "events": {
       "type": "array",
+      "description": "List of Roborace events where this mission is intended to be fulfilled",
       "items": {
         "type": "object",
         "properties": {
           "slug": {
-            "type": "string"
+            "type": "string",
+            "description": "User-friendly and URL-valid name of the event. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Event name"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Event description"
           },
           "arrangements": {
-            "type": [
-              "string",
-              "array"
-            ],
+            "type": "array",
+            "description": "List of arrangements for the event. Each arrangement has its own map which is provided in a separate file (see [Map](./Map.v1.json))",
             "items": {
               "type": "object",
               "properties": {
                 "slug": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "User-friendly and URL-valid name of the arrangement. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
                 },
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Arrangement name"
                 },
                 "description": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Arrangement description"
                 },
                 "venue": {
                   "type": "object",
+                  "description": "Venue of the arrangement",
                   "properties": {
                     "slug": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "User-friendly and URL-valid name of the venue. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
                     },
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Venue name"
                     },
                     "description": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Venue description"
                     },
                     "address": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Venue address"
                     },
                     "position": {
                       "type": "array",
+                      "description": "Venue geoposition (latitude, longitude). Positive latitude corresponds to Northern Hemisphere, positive longitude corresponds to Eastern Hemisphere",
                       "items": {
                         "type": "number"
                       }
                     }
-                  }
-                },
-                "zones": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "./Zone.v1.json"
-                  }
+                  },
+                  "required": [
+                    "name",
+                    "address"
+                  ]
                 }
               }
             }
           }
-        }
+        },
+        "required": [
+          "name"
+        ]
       }
     }
-  }
+  },
+  "required": [
+    "slug",
+    "version",
+    "schema",
+    "name",
+    "created",
+    "team",
+    "gizmoTypes",
+    "events"
+  ]
 }

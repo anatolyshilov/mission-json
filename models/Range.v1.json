@@ -5,15 +5,19 @@
       "type": "object",
       "properties": {
         "min": {
-          "type": "number"
+          "type": "number",
+          "description": "Minimum value"
         },
         "max": {
-          "type": "number"
+          "type": "number",
+          "description": "Maximum value"
         }
       }
     },
     {
-      "type": "number"
+      "type": "number",
+      "description": "Single value"
     }
-  ]
+  ],
+  "description": "Range object contains either a range of values or a single value"
 }

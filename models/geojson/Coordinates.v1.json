@@ -1,0 +1,10 @@
+{
+  "type": "array",
+  "items": {
+    "type": "number"
+  },
+  "maxItems": 3,
+  "minItems": 2,
+  "title": "Coordinates",
+  "description": "2D/3D coordinates"
+}

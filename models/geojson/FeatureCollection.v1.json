@@ -1,0 +1,31 @@
+{
+  "title": "MultiLineString geometry object",
+  "allOf": [
+    {
+      "$ref": "./GeoJsonObject.v1.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "FeatureCollection"
+          ]
+        },
+        "features": {
+          "description": "A list of features associated with the collection",
+          "type": "array",
+          "items": {
+            "$ref": "./Feature.v1.json"
+          }
+        }
+      },
+      "required": [
+        "features"
+      ]
+    }
+  ],
+  "link": "https://tools.ietf.org/html/rfc7946#section-3.3",
+  "x-examples": {}
+}

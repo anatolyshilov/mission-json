@@ -1,0 +1,56 @@
+{
+  "title": "Feature",
+  "allOf": [
+    {
+      "$ref": "./GeoJsonObject.v1.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "An identifier for the feature",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Feature"
+          ]
+        },
+        "geometry": {
+          "oneOf": [
+            {
+              "$ref": "./AnyGeometry.v1.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "geometry"
+      ]
+    }
+  ],
+  "link": "https://tools.ietf.org/html/rfc7946#section-3.2",
+  "description": "Feature geometry object",
+  "x-examples": {}
+}
