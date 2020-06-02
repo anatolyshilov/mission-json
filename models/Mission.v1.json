@@ -33,92 +33,11 @@
       "type": "string",
       "description": "Team name"
     },
-    "gizmoTypes": {
-      "type": "object",
+    "gizmos": {
       "description": "Types of gizmos (i.e. virtual and real objects) used in this mission",
-      "required": [
-        "id",
-        "name",
-        "properties"
-      ],
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Gizmo type identifier"
-        },
-        "slug": {
-          "type": "string",
-          "description": "User-friendly and URL-valid name of the type. [Learn more about the slug concept](https://en.wikipedia.org/wiki/Clean_URL#Slug)"
-        },
-        "name": {
-          "type": "string",
-          "description": "Gizmo type name"
-        },
-        "description": {
-          "type": "string",
-          "description": "Gizmo type description"
-        },
-        "url": {
-          "type": "string",
-          "description": "URL of a web page containing detailed information on this type"
-        },
-        "kind": {
-          "type": "string",
-          "description": "Object kind (physical body, phenomenon such as rain or fog etc.). In the current version of Roborace Metaverse this field will always contain the value `physical_body`"
-        },
-        "properties": {
-          "type": "object",
-          "description": "Object properties",
-          "properties": {
-            "role": {
-              "type": "object",
-              "description": "Object's role in the game",
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "description": "One of obstacle, collectable, etc (the list of possible values may vary from mission to mission)"
-                },
-                "points": {
-                  "type": "number",
-                  "description": "Score points (positive value means reward; negative value means penalty). If not specified, then a contact with such an object does not affect team/car score"
-                }
-              },
-              "required": [
-                "value"
-              ]
-            },
-            "dimensions": {
-              "type": "object",
-              "description": "Physical dimensions (if applicable)",
-              "properties": {
-                "length": {
-                  "$ref": "./Range.v1.json"
-                },
-                "width": {
-                  "$ref": "./Range.v1.json"
-                },
-                "height": {
-                  "$ref": "./Range.v1.json"
-                }
-              },
-              "required": [
-                "length"
-              ]
-            },
-            "dynamic": {
-              "type": "object",
-              "description": "Dynamic characteristics (if applicable)",
-              "properties": {
-                "velocity": {
-                  "$ref": "./Range.v1.json"
-                },
-                "acceleration": {
-                  "$ref": "./Range.v1.json"
-                }
-              }
-            }
-          }
-        }
+      "type": "array",
+      "items": {
+        "$ref": "./Gizmo.v1.json"
       }
     },
     "events": {
@@ -207,7 +126,7 @@
     "name",
     "created",
     "team",
-    "gizmoTypes",
+    "gizmos",
     "events"
   ]
 }
