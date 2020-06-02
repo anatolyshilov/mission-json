@@ -1,7 +1,7 @@
 {
   "title": "Gizmo",
   "type": "object",
-  "description": "An object, either virtual or real, on the scene. Only stationery (non-movable and always present) objects will be specified in mission description files",
+  "description": "An object, either virtual or real-world, on the scene. Only stationery (non-movable and always present) objects will be specified in mission description files",
   "properties": {
     "id": {
       "type": "string",
